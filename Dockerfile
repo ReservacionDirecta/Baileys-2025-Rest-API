@@ -18,6 +18,8 @@ RUN apk add --no-cache \
 
 # Copy package files
 COPY package.json yarn.lock* package-lock.json* ./
+COPY engine-requirements.js ./  # Agregar esta línea
+COPY prisma ./prisma/           # Agregar esta línea
 
 # Install dependencies
 RUN if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
